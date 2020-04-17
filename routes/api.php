@@ -17,16 +17,19 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-    /**
-     * Routes for resource course
-     */
-    Route::get('courses/all', 'CourseController@list');
-    Route::resource('courses', 'CourseController');
-    
+    Route::middleware('client')->group(function(){
+        /**
+         * Routes for resource course
+         */
+        Route::get('courses/all', 'CourseController@list');
+        Route::resource('courses', 'CourseController');
+        
 
-    /**
-     * Routes for resource student
-     */
-    Route::get('students/all', 'StudentController@list');
-    Route::resource('students', 'StudentController');
+        /**
+         * Routes for resource student
+         */
+        Route::get('students/all', 'StudentController@list');
+        Route::resource('students', 'StudentController');
+    });
     
+    Route::get('token', 'TokenController');
