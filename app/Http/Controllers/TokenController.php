@@ -9,7 +9,7 @@ class TokenController extends Controller
     public function __invoke(){
         $guzzle = new \GuzzleHttp\Client;
 
-        $response = $guzzle->post('http://23people.test/oauth/token', [
+        $response = $guzzle->post('http://'.env('DOMAIN').'/oauth/token', [
             'form_params' => [
                 'grant_type' => 'client_credentials',
                 'client_id' => env('CLIENT_ID'),
