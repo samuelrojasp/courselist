@@ -6,7 +6,7 @@ use Illuminate\Http\Response;
 trait RESTActions {
 
 
-    public function all()
+    public function index()
     {
         $m = self::MODEL;
         return $this->respond(Response::HTTP_OK, $m::paginate(10));
@@ -18,7 +18,7 @@ trait RESTActions {
         return $this->respond(Response::HTTP_OK, $m::all());
     }
 
-    public function get($id)
+    public function show($id)
     {
         $m = self::MODEL;
         $model = $m::find($id);
@@ -28,7 +28,7 @@ trait RESTActions {
         return $this->respond(Response::HTTP_OK, $model);
     }
 
-    public function add(Request $request)
+    public function store(Request $request)
     {
         $m = self::MODEL;
 
@@ -36,7 +36,7 @@ trait RESTActions {
         return $this->respond(Response::HTTP_CREATED, $m::create($request->json()->all()));
     }
 
-    public function put(Request $request, $id)
+    public function update(Request $request, $id)
     {
         $m = self::MODEL;
 
@@ -51,7 +51,7 @@ trait RESTActions {
         return $this->respond(Response::HTTP_OK, $model);
     }
 
-    public function remove($id)
+    public function destroy($id)
     {
         $m = self::MODEL;
         if(is_null($m::find($id))){
@@ -65,6 +65,4 @@ trait RESTActions {
     {
         return response()->json($data, $status);
     }
-
 }
-© 2020 GitHub, Inc.
