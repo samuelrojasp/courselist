@@ -12,8 +12,8 @@ class TokenController extends Controller
         $response = $guzzle->post('http://23people.test/oauth/token', [
             'form_params' => [
                 'grant_type' => 'client_credentials',
-                'client_id' => '3',
-                'client_secret' => 'B9yO1gOhHXXgsJpgM92rJiCcyXUyvkHdj1WomXRf',
+                'client_id' => env('CLIENT_ID'),
+                'client_secret' => env('CLIENT_SECRET'),
                 'scope' => '',
             ],
         ]);
