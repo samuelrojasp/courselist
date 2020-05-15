@@ -28,8 +28,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         /**
          * Routes for resource student
          */
-        Route::get('students/all', 'StudentController@list');
-        Route::resource('students', 'StudentController');
+        Route::get('people/all', 'PersonController@list');
+        Route::resource('people', 'PersonController');
     });
     
     Route::get('token', 'TokenController');
