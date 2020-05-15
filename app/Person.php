@@ -17,7 +17,7 @@ class Person extends Model
     protected $dates = [];
 
     public static $putRules = [
-        'rut' => 'unique:students|cl_rut|max:9',
+        'rut' => 'unique:people|cl_rut|max:9',
         'name' => 'alpha',
         'last_name' => 'alpha',
         'age' => 'integer|gte:18',
@@ -25,7 +25,7 @@ class Person extends Model
     ];
 
     public static $postRules = [
-        'rut' => 'required|unique:students|cl_rut|max:9',
+        'rut' => 'required|unique:people|cl_rut|max:9',
         'name' => 'required|alpha',
         'last_name' => 'required|alpha',
         'age' => 'required|integer|gte:18',

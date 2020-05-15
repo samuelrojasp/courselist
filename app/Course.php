@@ -26,8 +26,8 @@ class Course extends Model
         // ...
     ];
 
-    public function students()
+    public function people()
     {
-        return $this->hasMany('App\Student');
+        return $this->hasMany('App\Person');
     }
 }
