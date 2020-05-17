@@ -4,9 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-class StudentController extends Controller
+class PersonController extends Controller
 {
-    const MODEL = "App\Student";
+    const MODEL = "App\Person";
 
     use RESTActions;
 }
