@@ -21,7 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
         /**
          * Routes for resource course
          */
-        Route::get('courses/all', 'CourseController@list');
         Route::resource('courses', 'CourseController');
         
 
