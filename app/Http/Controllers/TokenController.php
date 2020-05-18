@@ -6,10 +6,10 @@ use Illuminate\Http\Request;
 
 class TokenController extends Controller
 {
-    public function __invoke(){
+    public function __invoke(Request $request){
         $guzzle = new \GuzzleHttp\Client;
 
-        $response = $guzzle->post('172.23.0.3/oauth/token', [
+        $response = $guzzle->post($request->getSchemeAndHttpHost().'/oauth/token', [
             'form_params' => [
                 'grant_type' => 'client_credentials',
                 'client_id' => env('CLIENT_ID'),
