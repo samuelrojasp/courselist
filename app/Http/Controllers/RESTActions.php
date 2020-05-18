@@ -5,23 +5,16 @@ use Illuminate\Http\Response;
 
 trait RESTActions {
 
-
     public function index()
-    {
-        $m = self::MODEL;
-        return $this->respond(Response::HTTP_OK, $m::paginate(10));
-    }
-
-    public function list()
     {
         $m = self::MODEL;
         return $this->respond(Response::HTTP_OK, $m::all());
     }
 
-    public function show($id)
+    public function show($rut)
     {
         $m = self::MODEL;
-        $model = $m::find($id);
+        $model = $m::where('rut', $rut)->first();
         if(is_null($model)){
             return $this->respond(Response::HTTP_NOT_FOUND);
         }
